@@ -4,7 +4,7 @@ title = "MOM4 test"
         graph = "mom"
 [runtime]
     [[root]]
-        command scripting = "rose task-run $CYLC_SUITE_REG_NAME $CYLC_TASK_NAME"
+        command scripting = "module load rose; rose task-run $CYLC_SUITE_REG_NAME $CYLC_TASK_NAME"
         [[[event hooks]]]
             script = "rose task-hook --shutdown-if=failed,submission_failed"
             events = succeeded,failed,submission_failed
@@ -12,4 +12,3 @@ title = "MOM4 test"
             method=pbs
         [[[directives]]]
             -l = 'ncpus=1,walltime=0:01:00,vmem=100mb'
-            -j = 'oe'
